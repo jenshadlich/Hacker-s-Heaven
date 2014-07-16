@@ -1,4 +1,4 @@
 Hacker's Heaven
 ===============
 
-Tiny PHP app with built-in security holes to demonstrate SQL injection and XSS. Attention, use at own risk! :)
+Small PHP app with lot's of built-in security holes to demonstrate e.g. SQL injection and XSS. Attention, use at own risk! :)
