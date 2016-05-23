@@ -1,9 +1,10 @@
-Hacker's Heaven
-===============
+# Hacker's Heaven
 
 Small PHP app with lot's of built-in security holes to demonstrate e.g. SQL injection and XSS.
 
 Use at own risk and have fun! :)
+
+## Usage
 
 ```
 vagrant up
