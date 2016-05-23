@@ -9,4 +9,4 @@ Use at own risk and have fun! :)
 vagrant up
 ```
 
-Navigate to http://localhost:8080/index.php
+Navigate to [http://localhost:8080/index.php](http://localhost:8080/index.php).
