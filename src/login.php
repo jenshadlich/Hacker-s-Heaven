@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $hostname = $_SERVER['HTTP_HOST'];
     $path = dirname($_SERVER['PHP_SELF']);
     
-    $db = mysql_connect('localhost:3306', 'root', 'root');
+    $db = mysql_connect('localhost:3306', 'root');
     if (!$db) {
         die('DB connection error: ' . mysql_error());
     }
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($row['authorized']) {
         $_SESSION['authorized'] = true;
-        header('Location: http://'.$hostname.($path == '\\' ? '' : $path).'/index.php');
+        header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/index.php');
         exit;
     } else {
         $loginAttemptFailed = true;
@@ -40,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 require('libs/smarty/Smarty.class.php');
 
 $smarty = new Smarty;
+$smarty->setCompileDir('../tmp/templates_c');
 $smarty->assign('username', $username);
 $smarty->assign('loginErrorMessage', ($loginAttemptFailed === true) ? "Failed to login user '$username'." : '');
 $smarty->display('login.tpl');
