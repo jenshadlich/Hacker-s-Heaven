@@ -1,5 +1,5 @@
-/Hacker-s-Heaven.ipr
-/Hacker-s-Heaven.iml
-/Hacker-s-Heaven.iws
+/.vagrant
+/*.ipr
+/*.iml
+/*.iws
 /atlassian-ide-plugin.xml
-templates_c
