@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $hostname = $_SERVER['HTTP_HOST'];
     $path = dirname($_SERVER['PHP_SELF']);
-    
+
     $db = mysql_connect('localhost:3306', 'root');
     if (!$db) {
         die('DB connection error: ' . mysql_error());
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $sql = "SELECT (COUNT(id) > 0) as authorized FROM users WHERE username = '$username' AND password_md5 = '$passwordMD5'";
     $result = mysql_query($sql);
-    
+
     echo "<!-- $sql -->";
 
     $row = mysql_fetch_assoc($result);
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($row['authorized']) {
         $_SESSION['authorized'] = true;
-        header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/index.php');
+        header('Location: http://' . $hostname . ($path == '/' ? '' : $path) . '/index.php');
         exit;
     } else {
         $loginAttemptFailed = true;
