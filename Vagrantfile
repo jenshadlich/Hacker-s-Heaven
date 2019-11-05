@@ -8,11 +8,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     if Vagrant.has_plugin?("vagrant-cachier")
         config.cache.scope = :box
     end
+    if Vagrant.has_plugin?("vagrant-hostmanager")
+        config.hostmanager.enabled = true
+    end
 
     config.ssh.forward_agent = true
     config.ssh.insert_key = false
-    config.hostmanager.enabled = true
-
     config.vm.box = "ubuntu/trusty64"
 
     config.vm.network :forwarded_port, guest: 8080, host: 8080, auto_correct: true # http
